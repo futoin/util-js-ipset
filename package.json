@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/futoin/core-js-ri-asyncsteps.git"
+    "url": "https://github.com/futoin/util-js-ipset.git"
   },
   "keywords": [
     "futoin",
@@ -29,7 +29,7 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/futoin/core-js-ri-asyncsteps/issues",
+    "url": "https://github.com/futoin/util-js-ipset/issues",
     "email": "support@futoin.org"
   },
   "devDependencies": {
@@ -52,8 +52,7 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
-    "ip-address": "^5.8.9",
-    "performance-now": "^2.1.0"
+    "ip-address": "^5.8.9"
   },
   "eslintIgnore": [
     "test/**"

@@ -109,7 +109,7 @@ Trivial and fast enough pure JS algo:
 <dd><p>IPv4 specialization of IPSetBase</p>
 </dd>
 <dt><a href="#IPSet6">IPSet6</a></dt>
-<dd><p>IPv4 specialization of IPSetBase</p>
+<dd><p>IPv6 specialization of IPSetBase</p>
 </dd>
 <dt><a href="#IPSetBase">IPSetBase</a></dt>
 <dd><p>Universal based for IPv4 and IPv6 ipsets</p>
@@ -185,7 +185,7 @@ IPv4 specialization of IPSetBase
 <a name="IPSet6"></a>
 
 ## IPSet6
-IPv4 specialization of IPSetBase
+IPv6 specialization of IPSetBase
 
 **Kind**: global class  
 <a name="IPSetBase"></a>
