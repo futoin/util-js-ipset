@@ -25,10 +25,10 @@ const IPSetBase = require( './IPSetBase' );
 /**
  * IPv4 specialization of IPSetBase
  */
-class IPSet4 extends IPSetBase {
+class IPSet6 extends IPSetBase {
     constructor() {
         super( Address6 );
     }
 }
 
-module.exports = IPSet4;
+module.exports = IPSet6;

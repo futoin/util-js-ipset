@@ -1,7 +1,7 @@
 {
   "name": "futoin-ipset",
   "version": "0.0.1",
-  "description": "Pure JS large ipset matching",
+  "description": "Pure JS large IP set matching",
   "main": "index.js",
   "engines": {
     "node": ">=6"

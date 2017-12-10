@@ -1,7 +1,7 @@
 
   [![NPM Version](https://img.shields.io/npm/v/futoin-ipset.svg?style=flat)](https://www.npmjs.com/package/futoin-ipset)
   [![NPM Downloads](https://img.shields.io/npm/dm/futoin-ipset.svg?style=flat)](https://www.npmjs.com/package/futoin-ipset)
-  [![Build Status](https://travis-ci.org/futoin/core-js-ri-asyncsteps.svg)](https://travis-ci.org/futoin/core-js-ri-asyncsteps)
+  [![Build Status](https://travis-ci.org/futoin/util-js-ipset.svg)](https://travis-ci.org/futoin/util-js-ipset)
   [![stable](https://img.shields.io/badge/stability-stable-green.svg?style=flat)](https://www.npmjs.com/package/futoin-ipset)
 
   [![NPM](https://nodei.co/npm/futoin-ipset.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/futoin-ipset/)
@@ -20,7 +20,8 @@ Key features:
 * IPv4 and IPv6 support on top of [ip-address](https://www.npmjs.com/package/ip-address) module.
 * Efficient prefix matching relying on JS Map implementation performance.
 * Dynamic ipset manipulation.
-* Associate any value
+* Associate any value for classification of match
+
 
 # Installation for Node.js
 
@@ -40,6 +41,60 @@ The module can be used with `webpack` or any other CommonJS packer. However, ple
 ensure to use ES6->ES5 transpilation for older browsers.
 
 There is no browser use case yet though.
+
+# Examples
+
+```javascript
+const { IPSet, Address4, Address6 } = require( 'futoin-ipset' );
+
+// universal IPv4/IPv6 set
+const ipset = new IPSet();
+
+const Region2 = {}; // any ref can be associated
+
+// cheap operations
+ipset.add( '1.2.2.0/23', 'Region 1' );
+ipset.add( new Address4('2.3.4.0/24'), Region2 ); // instance of ip-address.Address4 can be also passed
+ipset.add( 'abcd::/48', 'Region 1' );
+ipset.add( new Address6('bcda::/56'), Region2 ); // ... or instance of ip-address.Address6
+ipset.add( '2.3.4.5/32', 'blacklist' );
+ipset.add( 'abcd:1234:5678:9abc::/64', 'blacklist' );
+
+ipset.remove( 'bcda::/56' );
+
+// matching
+console.log(
+    ipset.match( '1.2.3.4' ), // 'Region 1',
+    ipset.match( '2.3.4.1' ), // Region2 ref
+    ipset.match( new Address4('2.3.4.5') ), // 'blacklist'
+    ipset.match( 'abcd:1234:5678:9abc::123' ), // 'blacklist'
+    ipset.match( 'bcda::/56' ), // undefined
+);
+
+// just a handy helper
+ipset.convertAddress('1.2.3.4') -> instance of Address4
+ipset.convertAddress('1.2.3.4/23') -> instance of Address4
+ipset.convertAddress('::1') -> instance of Address6
+```
+
+# Matching logic
+
+Internally, ipset is a map of prefix lengths to map of network address to referenced value, like:
+
+    IP version map of
+        /23 -> map of
+            1.2.2.0 -> ref
+            1.1.0.0 -> ref
+        /32 -> map of
+            1.2.3.4 -> ref
+
+Trivial and fast enough pure JS algo:
+
+1. Determine IPv4 or IPv6 set to use
+1. Go from longest to smallest *registered* prefix length
+    - get net address with specified prefix length based on address in question
+    - if known net then return associated value
+1. Otherwise, return undefined
 
     
 # API documentation
