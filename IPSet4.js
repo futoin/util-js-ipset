@@ -18,3 +18,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+const { Address4 } = require( 'ip-address' );
+const IPSetBase = require( './IPSetBase' );
+
+/**
+ * IPv4 specialization of IPSetBase
+ */
+class IPSet4 extends IPSetBase {
+    constructor() {
+        super( Address4 );
+    }
+}
+
+module.exports = IPSet4;

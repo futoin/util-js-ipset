@@ -44,6 +44,166 @@ There is no browser use case yet though.
     
 # API documentation
 
+## Classes
+
+<dl>
+<dt><a href="#IPSet">IPSet</a></dt>
+<dd><p>Universal IPv4/IPv6 wrapper</p>
+</dd>
+<dt><a href="#IPSet4">IPSet4</a></dt>
+<dd><p>IPv4 specialization of IPSetBase</p>
+</dd>
+<dt><a href="#IPSet4">IPSet4</a></dt>
+<dd><p>IPv4 specialization of IPSetBase</p>
+</dd>
+<dt><a href="#IPSetBase">IPSetBase</a></dt>
+<dd><p>Universal based for IPv4 and IPv6 ipsets</p>
+</dd>
+</dl>
+
+<a name="IPSet"></a>
+
+## IPSet
+Universal IPv4/IPv6 wrapper
+
+**Kind**: global class  
+
+* [IPSet](#IPSet)
+    * [.add(addr, value)](#IPSet+add)
+    * [.remove(addr)](#IPSet+remove)
+    * [.match(addr)](#IPSet+match) ⇒ <code>any</code>
+    * [.convertAddress(addr)](#IPSet+convertAddress) ⇒ <code>object</code>
+
+<a name="IPSet+add"></a>
+
+### ipSet.add(addr, value)
+Add address to IP set
+
+**Kind**: instance method of [<code>IPSet</code>](#IPSet)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+| value | <code>any</code> | any value to associate |
+
+<a name="IPSet+remove"></a>
+
+### ipSet.remove(addr)
+Remove address from IP set
+
+**Kind**: instance method of [<code>IPSet</code>](#IPSet)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+
+<a name="IPSet+match"></a>
+
+### ipSet.match(addr) ⇒ <code>any</code>
+Try to match addr against ipset producing associated value
+
+**Kind**: instance method of [<code>IPSet</code>](#IPSet)  
+**Returns**: <code>any</code> - value - any associated value or undefined  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+
+<a name="IPSet+convertAddress"></a>
+
+### ipSet.convertAddress(addr) ⇒ <code>object</code>
+Convert raw string or object to implementation instance
+
+**Kind**: instance method of [<code>IPSet</code>](#IPSet)  
+**Returns**: <code>object</code> - instance of address implementation  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+
+<a name="IPSet4"></a>
+
+## IPSet4
+IPv4 specialization of IPSetBase
+
+**Kind**: global class  
+<a name="IPSet4"></a>
+
+## IPSet4
+IPv4 specialization of IPSetBase
+
+**Kind**: global class  
+<a name="IPSetBase"></a>
+
+## IPSetBase
+Universal based for IPv4 and IPv6 ipsets
+
+**Kind**: global class  
+
+* [IPSetBase](#IPSetBase)
+    * [new IPSetBase(address_impl)](#new_IPSetBase_new)
+    * [.add(addr, value)](#IPSetBase+add)
+    * [.remove(addr)](#IPSetBase+remove)
+    * [.match(addr)](#IPSetBase+match) ⇒ <code>any</code>
+    * [.convertAddress(addr)](#IPSetBase+convertAddress) ⇒ <code>object</code>
+
+<a name="new_IPSetBase_new"></a>
+
+### new IPSetBase(address_impl)
+C-tor
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| address_impl | <code>class</code> | Address4 or Address6 class reference |
+
+<a name="IPSetBase+add"></a>
+
+### ipSetBase.add(addr, value)
+Add address to IP set
+
+**Kind**: instance method of [<code>IPSetBase</code>](#IPSetBase)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+| value | <code>any</code> | any value to associate |
+
+<a name="IPSetBase+remove"></a>
+
+### ipSetBase.remove(addr)
+Remove address from IP set
+
+**Kind**: instance method of [<code>IPSetBase</code>](#IPSetBase)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+
+<a name="IPSetBase+match"></a>
+
+### ipSetBase.match(addr) ⇒ <code>any</code>
+Try to match addr against ipset producing associated value
+
+**Kind**: instance method of [<code>IPSetBase</code>](#IPSetBase)  
+**Returns**: <code>any</code> - value - any associated value or undefined  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+
+<a name="IPSetBase+convertAddress"></a>
+
+### ipSetBase.convertAddress(addr) ⇒ <code>object</code>
+Convert raw string or object to implementation instance
+
+**Kind**: instance method of [<code>IPSetBase</code>](#IPSetBase)  
+**Returns**: <code>object</code> - instance of address implementation  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+
 
 
 *documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown)*.
