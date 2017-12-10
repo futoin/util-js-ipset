@@ -23,7 +23,7 @@ const { Address6 } = require( 'ip-address' );
 const IPSetBase = require( './IPSetBase' );
 
 /**
- * IPv4 specialization of IPSetBase
+ * IPv6 specialization of IPSetBase
  */
 class IPSet6 extends IPSetBase {
     constructor() {
