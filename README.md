@@ -40,6 +40,9 @@ $ yarn add futoin-ipset --save
 The module can be used with `webpack` or any other CommonJS packer. However, please
 ensure to use ES6->ES5 transpilation for older browsers.
 
+Pre-packed UMD module is available in dist/futoin-ipset.js. However, Map polyfill is
+required for older browsers.
+
 There is no browser use case yet though.
 
 # Examples
@@ -113,6 +116,14 @@ Trivial and fast enough pure JS algo:
 </dd>
 <dt><a href="#IPSetBase">IPSetBase</a></dt>
 <dd><p>Universal based for IPv4 and IPv6 ipsets</p>
+</dd>
+</dl>
+
+## Members
+
+<dl>
+<dt><a href="#$as">$as</a></dt>
+<dd><p><strong>window.FutoIn.ipset</strong> - browser-only reference to futoin-ipset module</p>
 </dd>
 </dl>
 
@@ -259,6 +270,12 @@ Convert raw string or object to implementation instance
 | --- | --- | --- |
 | addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
 
+<a name="$as"></a>
+
+## $as
+**window.FutoIn.ipset** - browser-only reference to futoin-ipset module
+
+**Kind**: global variable  
 
 
 *documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown)*.

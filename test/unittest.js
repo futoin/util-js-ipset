@@ -1,7 +1,9 @@
 'use strict';
 
-const { IPSet, Address4, Address6 } = require( '../index' );
-const expect = require( 'chai' ).expect;
+const isNode = ( typeof window === "undefined" );
+const hidereq = require;
+const { IPSet, Address4, Address6 } = isNode ? hidereq( '../index' ) : window.FutoIn.ipset;
+const expect = isNode ? hidereq( 'chai' ).expect : window.chai.expect;
 
 describe( 'IPSet', function() {
     it ( 'should convert IPv4', function() {

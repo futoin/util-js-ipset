@@ -3,6 +3,13 @@
   "version": "0.0.1",
   "description": "Pure JS large IP set matching",
   "main": "index.js",
+  "browser": "lib/browser.js",
+  "files": [
+    "dist",
+    "lib",
+    "index.js",
+    "IP*.js"
+  ],
   "engines": {
     "node": ">=6"
   },
@@ -36,6 +43,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "eslint": "^4.12.1",
