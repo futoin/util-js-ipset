@@ -1,0 +1,61 @@
+{
+  "name": "futoin-ipset",
+  "version": "0.0.1",
+  "description": "Pure JS large ipset matching",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/futoin/core-js-ri-asyncsteps.git"
+  },
+  "keywords": [
+    "futoin",
+    "ipset",
+    "ipv4",
+    "ipv6",
+    "cidr",
+    "ip",
+    "blacklist",
+    "whitelist"
+  ],
+  "author": {
+    "name": "Andrey Galkin",
+    "email": "andrey@futoin.org"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/futoin/core-js-ri-asyncsteps/issues",
+    "email": "support@futoin.org"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.12.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-eslint": "^20.1.0",
+    "grunt-jsdoc-to-markdown": "^3.0.0",
+    "grunt-mocha-istanbul": "^5.0.2",
+    "grunt-mocha-phantomjs": "^4.0.0",
+    "grunt-text-replace": "^0.4.0",
+    "grunt-webpack": "^3.0.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "ip-address": "^5.8.9",
+    "performance-now": "^2.1.0"
+  },
+  "eslintIgnore": [
+    "test/**"
+  ]
+}
