@@ -8,9 +8,9 @@ module.exports = {
     },
     output: {
         library: {
-            root: "$as",
-            amd: "futoin-asyncsteps",
-            commonjs: "futoin-asyncsteps",
+            root: "futoinIpSet",
+            amd: "futoin-ipset",
+            commonjs: "futoin-ipset",
         },
         libraryTarget: "umd",
         filename: "[name].js",
