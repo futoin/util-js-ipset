@@ -1,6 +1,6 @@
 {
   "name": "futoin-ipset",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "vcs": "git",
   "rms": "npm",
   "rmsRepo": "ignored",
