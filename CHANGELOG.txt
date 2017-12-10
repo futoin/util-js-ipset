@@ -1,5 +1,5 @@
 
-=== (next) ===
+=== 1.0.1 (2017-12-10) ===
 FIXED: incorrect webpack dist config
 
 === 1.0.0 (2017-12-10) ===
