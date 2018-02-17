@@ -19,7 +19,7 @@
  * limitations under the License.
  */
 
-const { Address4 } = require( 'ip-address' );
+const { Address4 } = require( '@futoin/ip-address' );
 const IPSetBase = require( './IPSetBase' );
 
 /**

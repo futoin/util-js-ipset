@@ -46,23 +46,20 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
-    "eslint": "^4.12.1",
-    "grunt": "^1.0.1",
+    "eslint": "^4.18.0",
+    "grunt": "^1.0.2",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-eslint": "^20.1.0",
-    "grunt-jsdoc-to-markdown": "^3.0.0",
+    "grunt-jsdoc-to-markdown": "^4.0.0",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-phantomjs": "^4.0.0",
     "grunt-text-replace": "^0.4.0",
     "grunt-webpack": "^3.0.2",
     "istanbul": "^0.4.5",
-    "mocha": "^4.0.1",
-    "webpack": "^3.10.0"
+    "mocha": "^5.0.1",
+    "webpack": "^3.11.0"
   },
   "dependencies": {
-    "ip-address": "^5.8.9"
-  },
-  "eslintIgnore": [
-    "test/**"
-  ]
+    "@futoin/ip-address": "^5.8.11"
+  }
 }

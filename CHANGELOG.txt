@@ -1,4 +1,7 @@
 
+=== (next) ===
+FIXED: to work with frozen Object.prototype
+
 === 1.0.1 (2017-12-10) ===
 FIXED: incorrect webpack dist config
 

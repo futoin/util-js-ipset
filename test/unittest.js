@@ -1,5 +1,8 @@
 'use strict';
 
+// ensure it works with frozen one
+Object.freeze( Object.prototype );
+
 const isNode = ( typeof window === "undefined" );
 const hidereq = require;
 const { IPSet, Address4, Address6 } = isNode ? hidereq( '../index' ) : window.FutoIn.ipset;
