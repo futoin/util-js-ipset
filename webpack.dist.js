@@ -3,6 +3,7 @@
 const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 
 module.exports = {
+    mode: 'production',
     entry: {
         'futoin-ipset': './lib/browser.js',
     },

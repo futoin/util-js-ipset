@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+    mode: 'development',
     entry: {
         unittest : './test/unittest.js',
     },
