@@ -94,11 +94,18 @@ describe( 'IPSet', function() {
         ips.add( '0203:119:0000::1/30', 'fail' );
         ips.add( '0203:123:0000::1/128', 'fail' );
 
+        ips.add( "::ffff:104.192.136.0/21", 'hybrid' );
+
         expect( ips.match( '1.2.3.3' ) ).to.equal( 'V4' );
         expect( ips.match( '2.2.3.3' ) ).to.be.undefined;
 
         expect( ips.match( '0203:123:0000::2' ) ).to.equal( 'V6' );
         expect( ips.match( '03::' ) ).to.be.undefined;
+
+        expect( ips.match( '::ffff:104.192.142.193' ) ).to.equal( 'hybrid' );
+        expect( ips.match( '104.192.142.193' ) ).to.equal( 'hybrid' );
+        expect( ips.match( '::ffff:127.0.0.1' ) ).to.be.undefined;
+        expect( ips.match( '127.0.0.1' ) ).to.be.undefined;
 
         expect( ips.match( ips.convertAddress( '1.2.3.3' ) ) ).to.equal( 'V4' );
         expect( ips.match( ips.convertAddress( '0203:123:0000::2' ) ) ).to.equal( 'V6' );
