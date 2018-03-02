@@ -208,8 +208,8 @@ Universal based for IPv4 and IPv6 ipsets
 
 * [IPSetBase](#IPSetBase)
     * [new IPSetBase(address_impl)](#new_IPSetBase_new)
-    * [.add(addr, value)](#IPSetBase+add)
-    * [.remove(addr)](#IPSetBase+remove)
+    * [.add(addr, value)](#IPSetBase+add) ⇒ <code>object</code>
+    * [.remove(addr)](#IPSetBase+remove) ⇒ <code>object</code>
     * [.match(addr)](#IPSetBase+match) ⇒ <code>any</code>
     * [.convertAddress(addr)](#IPSetBase+convertAddress) ⇒ <code>object</code>
 
@@ -225,10 +225,11 @@ C-tor
 
 <a name="IPSetBase+add"></a>
 
-### ipSetBase.add(addr, value)
+### ipSetBase.add(addr, value) ⇒ <code>object</code>
 Add address to IP set
 
 **Kind**: instance method of [<code>IPSetBase</code>](#IPSetBase)  
+**Returns**: <code>object</code> - converted IP address  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -237,10 +238,11 @@ Add address to IP set
 
 <a name="IPSetBase+remove"></a>
 
-### ipSetBase.remove(addr)
+### ipSetBase.remove(addr) ⇒ <code>object</code>
 Remove address from IP set
 
 **Kind**: instance method of [<code>IPSetBase</code>](#IPSetBase)  
+**Returns**: <code>object</code> - converted IP address  
 
 | Param | Type | Description |
 | --- | --- | --- |

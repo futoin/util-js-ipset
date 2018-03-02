@@ -22,6 +22,8 @@
 const IPSet4 = require( './IPSet4' );
 const IPSet6 = require( './IPSet6' );
 
+const IPV4INV6_PREFIX = 96;
+
 /**
  * Universal IPv4/IPv6 wrapper
  */
@@ -39,9 +41,14 @@ class IPSet {
      */
     add( addr, value ) {
         try {
-            this._v4.add( addr, value );
+            const v4_addr = this._v4.add( addr, value );
+            this._v6.add( this._4to6( v4_addr ), value );
         } catch ( _ ) {
-            this._v6.add( addr, value );
+            const v6_addr = this._v6.add( addr, value );
+
+            if ( v6_addr.v4 ) {
+                this._v4.add( this._6to4( v6_addr ), value );
+            }
         }
     }
 
@@ -51,9 +58,14 @@ class IPSet {
      */
     remove( addr ) {
         try {
-            this._v4.remove( addr );
+            const v4_addr = this._v4.remove( addr );
+            this._v6.remove( this._4to6( v4_addr ) );
         } catch ( _ ) {
-            this._v6.remove( addr );
+            const v6_addr = this._v6.remove( addr );
+
+            if ( v6_addr.v4 ) {
+                this._v4.remove( this._6to4( v6_addr ) );
+            }
         }
     }
 
@@ -81,6 +93,18 @@ class IPSet {
         } catch ( _ ) {
             return this._v6.convertAddress( addr );
         }
+    }
+
+    _4to6( v4_addr ) {
+        const mask = v4_addr.subnetMask + IPV4INV6_PREFIX;
+        return `::ffff:${v4_addr.toGroup6()}/${mask}`;
+    }
+
+    _6to4( v6_addr ) {
+        const base = v6_addr.to4().correctForm();
+        const mask = v6_addr.subnetMask - IPV4INV6_PREFIX;
+        const safe_mask = mask < 0 ? 0 : mask;
+        return `${base}/${safe_mask}`;
     }
 }
 

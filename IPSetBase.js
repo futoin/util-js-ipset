@@ -41,6 +41,7 @@ class IPSetBase {
      * Add address to IP set
      * @param {string|object} addr - instance implementing *ip-address* interface or string representation
      * @param {any} value - any value to associate
+     * @returns {object} converted IP address
      */
     add( addr, value ) {
         addr = this.convertAddress( addr );
@@ -58,11 +59,14 @@ class IPSetBase {
         }
 
         prefix_map.set( prefix, value );
+
+        return addr;
     }
 
     /**
      * Remove address from IP set
      * @param {string|object} addr - instance implementing *ip-address* interface or string representation
+     * @returns {object} converted IP address
      */
     remove( addr ) {
         addr = this.convertAddress( addr );
@@ -81,6 +85,8 @@ class IPSetBase {
                 this._updateSPLL();
             }
         }
+
+        return addr;
     }
 
     /**

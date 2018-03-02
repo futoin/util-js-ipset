@@ -1,4 +1,7 @@
 
+=== (next) ===
+NEW: support for IPv4-mapped IPv6 addresses
+
 === 1.1.0 (2018-02-17) ===
 FIXED: to work with frozen Object.prototype
 
