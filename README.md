@@ -21,6 +21,7 @@ Key features:
 * Efficient prefix matching relying on JS Map implementation performance.
 * Dynamic ipset manipulation.
 * Associate any value for classification of match
+* Transparent IPv4-mapped IPv6 conversion to plain IPv4
 
 
 # Installation for Node.js
@@ -138,7 +139,7 @@ Universal IPv4/IPv6 wrapper
     * [.add(addr, value)](#IPSet+add)
     * [.remove(addr)](#IPSet+remove)
     * [.match(addr)](#IPSet+match) ⇒ <code>any</code>
-    * [.convertAddress(addr)](#IPSet+convertAddress) ⇒ <code>object</code>
+    * [.convertAddress(addr, ipv6to4)](#IPSet+convertAddress) ⇒ <code>object</code>
 
 <a name="IPSet+add"></a>
 
@@ -177,15 +178,16 @@ Try to match addr against ipset producing associated value
 
 <a name="IPSet+convertAddress"></a>
 
-### ipSet.convertAddress(addr) ⇒ <code>object</code>
+### ipSet.convertAddress(addr, ipv6to4) ⇒ <code>object</code>
 Convert raw string or object to implementation instance
 
 **Kind**: instance method of [<code>IPSet</code>](#IPSet)  
 **Returns**: <code>object</code> - instance of address implementation  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| addr | <code>string</code> \| <code>object</code> | instance implementing *ip-address* interface or string representation |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| addr | <code>string</code> \| <code>object</code> |  | instance implementing *ip-address* interface or string representation |
+| ipv6to4 | <code>boolean</code> | <code>false</code> | control if IPv4-in-IPv6 should be converted to plain IPv4 |
 
 <a name="IPSet4"></a>
 

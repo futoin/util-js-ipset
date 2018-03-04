@@ -1,4 +1,8 @@
 
+=== (next) ===
+CHANGED: redesigned of IPv4-mapped IPv6 support
+- only IPv4 ipset is used
+
 === 1.2.0 (2018-03-02) ===
 NEW: support for IPv4-mapped IPv6 addresses
 

@@ -19,6 +19,12 @@ describe( 'IPSet', function() {
         expect( ips.convertAddress( '0203:123:0000::1/30' ) ).to.be.instanceof( Address6 );
     } );
 
+    it ( 'should convert IPv4-in-IPv6', function() {
+        const ips = new IPSet();
+        expect( ips.convertAddress( '::ffff:102:304', false ) ).to.be.instanceof( Address6 );
+        expect( ips.convertAddress( '::ffff:102:304', true ) ).to.be.instanceof( Address4 );
+    } );
+
     it ( 'should convert IPv4 to IPv6', function() {
         const ips = new IPSet();
 
@@ -48,13 +54,10 @@ describe( 'IPSet', function() {
         ips.add( '1.2.3.4/23', 'OK' );
 
         expect( ips._v4._pm.size ).to.equal( 1 );
-        expect( ips._v6._pm.size ).to.equal( 1 );
+        expect( ips._v6._pm.size ).to.equal( 0 );
 
         expect( ips._v4._pm.get( 23 ) ).to.be.ok;
         expect( ips._v4._pm.get( 23 ).get( '1.2.2.0' ) ).to.equal( 'OK' );
-
-        expect( ips._v6._pm.get( 23 + 96 ) ).to.be.ok;
-        expect( ips._v6._pm.get( 23 + 96 ).get( '::ffff:102:200' ) ).to.equal( 'OK' );
     } );
 
     it ( 'should add IPv4-in-IPv6', function() {
@@ -62,13 +65,10 @@ describe( 'IPSet', function() {
         ips.add( '::ffff:1.2.3.4/119', 'OK' );
 
         expect( ips._v4._pm.size ).to.equal( 1 );
-        expect( ips._v6._pm.size ).to.equal( 1 );
+        expect( ips._v6._pm.size ).to.equal( 0 );
 
         expect( ips._v4._pm.get( 119 - 96 ) ).to.be.ok;
         expect( ips._v4._pm.get( 119 - 96 ).get( '1.2.2.0' ) ).to.equal( 'OK' );
-
-        expect( ips._v6._pm.get( 119 ) ).to.be.ok;
-        expect( ips._v6._pm.get( 119 ).get( '::ffff:102:200' ) ).to.equal( 'OK' );
     } );
 
     it ( 'should add IPv6', function() {
@@ -87,7 +87,7 @@ describe( 'IPSet', function() {
         ips.add( '1.2.3.4/23', 'OK' );
 
         expect( ips._v4._pm.size ).to.equal( 1 );
-        expect( ips._v6._pm.size ).to.equal( 1 );
+        expect( ips._v6._pm.size ).to.equal( 0 );
 
         ips.remove( '1.2.3.4/23' );
 
@@ -100,7 +100,7 @@ describe( 'IPSet', function() {
         ips.add( '::ffff:1.2.3.4/119', 'OK' );
 
         expect( ips._v4._pm.size ).to.equal( 1 );
-        expect( ips._v6._pm.size ).to.equal( 1 );
+        expect( ips._v6._pm.size ).to.equal( 0 );
 
         ips.remove( '::ffff:1.2.3.4/119' );
 

@@ -40,15 +40,12 @@ class IPSet {
      * @param {any} value - any value to associate
      */
     add( addr, value ) {
-        try {
-            const v4_addr = this._v4.add( addr, value );
-            this._v6.add( this._4to6( v4_addr ), value );
-        } catch ( _ ) {
-            const v6_addr = this._v6.add( addr, value );
+        const addr_obj = this.convertAddress( addr, true );
 
-            if ( v6_addr.v4 ) {
-                this._v4.add( this._6to4( v6_addr ), value );
-            }
+        if ( addr_obj.v4 ) {
+            this._v4.add( addr_obj, value );
+        } else {
+            this._v6.add( addr_obj, value );
         }
     }
 
@@ -57,15 +54,12 @@ class IPSet {
      * @param {string|object} addr - instance implementing *ip-address* interface or string representation
      */
     remove( addr ) {
-        try {
-            const v4_addr = this._v4.remove( addr );
-            this._v6.remove( this._4to6( v4_addr ) );
-        } catch ( _ ) {
-            const v6_addr = this._v6.remove( addr );
+        const addr_obj = this.convertAddress( addr, true );
 
-            if ( v6_addr.v4 ) {
-                this._v4.remove( this._6to4( v6_addr ) );
-            }
+        if ( addr_obj.v4 ) {
+            this._v4.remove( addr_obj );
+        } else {
+            this._v6.remove( addr_obj );
         }
     }
 
@@ -75,23 +69,41 @@ class IPSet {
      * @return {any} value - any associated value or undefined
      */
     match( addr ) {
-        try {
-            return this._v4.match( addr );
-        } catch ( _ ) {
-            return this._v6.match( addr );
+        const addr_obj = this.convertAddress( addr, true );
+
+        if ( addr_obj.v4 ) {
+            return this._v4.match( addr_obj );
+        } else {
+            return this._v6.match( addr_obj );
         }
     }
 
     /**
      * Convert raw string or object to implementation instance
      * @param {string|object} addr - instance implementing *ip-address* interface or string representation
+     * @param {boolean} ipv6to4 - control if IPv4-in-IPv6 should be converted to plain IPv4
      * @return {object} instance of address implementation
      */
-    convertAddress( addr ) {
+    convertAddress( addr, ipv6to4=false ) {
         try {
             return this._v4.convertAddress( addr );
         } catch ( _ ) {
-            return this._v6.convertAddress( addr );
+            const res = this._v6.convertAddress( addr );
+            const groups = res.parsedAddress;
+
+            if ( ipv6to4 &&
+                 ( res.subnetMask >= IPV4INV6_PREFIX ) &&
+                 !parseInt( groups[0], 16 ) &&
+                 !parseInt( groups[1], 16 ) &&
+                 !parseInt( groups[2], 16 ) &&
+                 !parseInt( groups[3], 16 ) &&
+                 !parseInt( groups[4], 16 ) &&
+                 ( parseInt( groups[5], 16 ) === 0xFFFF )
+            ) {
+                return this._v4.convertAddress( this._6to4( res ) );
+            }
+
+            return res;
         }
     }
 
