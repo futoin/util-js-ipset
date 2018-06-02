@@ -6,11 +6,6 @@
 
   [![NPM](https://nodei.co/npm/futoin-ipset.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/futoin-ipset/)
 
-Author: [Andrey Galkin](mailto:andrey@futoin.org)
-
-[Web Site](http://futoin.org/)
-
-
 # About
 
 In absence of anything else up-to-date, pure JS and decent for efficient processing of large
@@ -22,6 +17,10 @@ Key features:
 * Dynamic ipset manipulation.
 * Associate any value for classification of match
 * Transparent IPv4-mapped IPv6 conversion to plain IPv4
+
+**Documentation** --> [FutoIn Guide](https://futoin.org/docs/miscjs/ipset/)
+
+Author: [Andrey Galkin](mailto:andrey@futoin.org)
 
 
 # Installation for Node.js
