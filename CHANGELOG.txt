@@ -1,3 +1,5 @@
+=== (next) ===
+CHANGED: dependency maintenance
 
 === 1.3.0 (2018-03-04) ===
 CHANGED: redesigned of IPv4-mapped IPv6 support
