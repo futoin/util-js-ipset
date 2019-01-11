@@ -26,8 +26,8 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [ 'babel-preset-env' ],
-                        plugins: [ "transform-object-assign" ],
+                        presets: [ '@babel/preset-env' ],
+                        plugins: [ "@babel/transform-object-assign" ],
                     },
                 },
             },
