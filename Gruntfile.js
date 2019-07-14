@@ -86,7 +86,6 @@ module.exports = function( grunt ) {
 
     grunt.loadNpmTasks( 'grunt-eslint' );
     grunt.loadNpmTasks( 'grunt-webpack' );
-    grunt.loadNpmTasks( 'grunt-contrib-connect' );
     grunt.loadNpmTasks( 'grunt-karma' );
     grunt.loadNpmTasks( 'grunt-simple-nyc' );
 
