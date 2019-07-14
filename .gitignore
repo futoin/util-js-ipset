@@ -3,3 +3,4 @@ coverage/
 out/
 dist/
 *.tgz
+/.nyc_output

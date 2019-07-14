@@ -1,10 +1,11 @@
 language: node_js
 dist: trusty
+addons:
+  firefox: latest
 node_js:
-- '11'
+- '12'
 - '10'
 - '8'
-- '6'
 
 before_install:
 - sudo pip install futoin-cid

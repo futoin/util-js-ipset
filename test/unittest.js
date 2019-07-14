@@ -3,10 +3,8 @@
 // ensure it works with frozen one
 Object.freeze( Object.prototype );
 
-const isNode = ( typeof window === "undefined" );
-const hidereq = require;
-const { IPSet, Address4, Address6 } = isNode ? hidereq( '../index' ) : window.FutoIn.ipset;
-const expect = isNode ? hidereq( 'chai' ).expect : window.chai.expect;
+const { IPSet, Address4, Address6 } = require( '../index' );
+const { expect } = require( 'chai' );
 
 describe( 'IPSet', function() {
     it ( 'should convert IPv4', function() {
