@@ -1,6 +1,6 @@
 {
   "name": "futoin-ipset",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Pure JS large IP set matching",
   "main": "index.js",
   "browser": "lib/browser.js",
